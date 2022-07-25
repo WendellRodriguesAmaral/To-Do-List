@@ -1,0 +1,31 @@
+<section class="w-100 min-vh-100 bg-light pt-2 all">
+    <h1 class="text-center title">
+        To-Do List
+        <mat-icon class="title__icon">assignment_turned_in</mat-icon>
+    </h1>
+
+    <main class="w-100 h-100 pt-5 content">
+        <div class="input-group m-auto mb-5 content__input">
+            <textarea class="form-control content__input-textarea" placeholder="Digite aqui sua tarefa"
+                aria-label="Area para digitar a tarefa"></textarea>
+            <span class="input-group-text content__input-button" pointer>
+                <mat-icon>add</mat-icon>
+            </span>
+        </div>
+
+        <section class="content__tasks">
+            <div class="m-auto mb-4 content__task" *ngFor="let i of [1,1,1,1,1,1]">
+                <div class="content__task-text">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde magnam placeat, ratione voluptatem at beatae laboriosam rem iusto rerum eos, tempore qui iste quaerat possimus nulla suscipit molestiae sit soluta. </p>
+
+                </div>
+                <div class="content__task-actions">
+                    <mat-icon class="content__task-actions__done" pointer>done_outline</mat-icon>
+                    <mat-icon class="content__task-actions__edit" pointer>edit</mat-icon>
+                    <mat-icon class="content__task-actions__delete" pointer>delete</mat-icon>
+                </div>
+            </div>       
+
+        </section>
+    </main>
+</section>

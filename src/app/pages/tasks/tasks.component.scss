@@ -1,0 +1,56 @@
+
+
+.title {
+  &__icon {
+    transform: scale(2);
+    margin-left: 10px;
+  }
+}
+
+.content {
+  &__input {
+    width: max(50%, 300px) !important;
+
+    &-textarea {
+      resize: vertical;
+      max-height: 200px;
+    }
+  }
+
+  &__tasks {
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  &__task {
+    width: max(50%, 300px) !important;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 2px rgb(201, 201, 201);
+
+    &-text {
+      padding-right: 10px;
+      text-align: start;
+      width: 100%;
+    }
+
+    &-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      &__done {
+        color: rgb(2, 224, 2);
+      }
+      &__edit {
+        color: rgb(151, 151, 151);
+        margin: 15px 0;
+      }
+      &__delete {
+        color: rgba(208, 1, 1, 0.817);
+      }
+    }
+  }
+}
