@@ -7,7 +7,7 @@
     <main class="w-100 h-100 pt-5 content text-center">
         <app-vmessage *ngIf="isTaskEquals" message="Ja existe pelo menos uma task com este conteúdo."></app-vmessage>
         <div class="input-group m-auto mb-5 content__input">
-            <textarea (keyup)="validateInput()" [(ngModel)]="task.taskContent" class="form-control content__input-textarea" placeholder="Digite aqui sua tarefa"
+            <textarea (keyup)="verifyTaskExists()" [(ngModel)]="task.taskContent" class="form-control content__input-textarea" placeholder="Digite aqui sua tarefa..."
                 aria-label="Area para digitar a tarefa"></textarea>
             <button [disabled]="disabled" class="content__input-button" (click)="saveTask()" pointer>
                 <mat-icon >add</mat-icon>
@@ -18,7 +18,6 @@
             <div class="m-auto mb-4 content__task" *ngFor="let task of tasks.reverse()">
                 <div class="content__task-text" [ngClass]="{'done': task.done} ">
                     <p>{{task.taskContent}}</p>
-
                 </div>
                 <div class="content__task-actions">
                     <mat-icon class="content__task-actions__done" pointer *ngIf="!task.done" (click)="taskDone(task)">done_outline</mat-icon>
@@ -27,7 +26,6 @@
                     <mat-icon class="content__task-actions__delete" pointer>delete</mat-icon>
                 </div>
             </div>       
-
         </section>
     </main>
 </section>

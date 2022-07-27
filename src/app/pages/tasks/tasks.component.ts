@@ -22,38 +22,33 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  taskDone(taskClickedDone:any){
+  taskDone(taskClickedDone: any) {
     taskClickedDone.done == false ? taskClickedDone.done = true : taskClickedDone.done = false;
+    this.verifyTaskExists();
     this.tasksService.setTask(this.tasks);
+    this.tasks = this.tasksService.getTask();
   }
-
-  validateInput() {
-    this.task.taskContent.trim().length == 0 ? this.disabled = true : this.disabled = false;
-  }
-
 
   createTask(task: TaskInterface) {
-
-    
-    if(this.verifyTaskExists(task)){
-      this.isTaskEquals=true;
-      this.task.taskContent='';
-      return
-    }
-
-    this.isTaskEquals=false;
+    this.task.taskContent = this.task.taskContent.trim();
     this.tasks.push(task);
     this.tasksService.setTask(this.tasks);
     window.location.reload();
-    
+
   }
 
   saveTask() {
-    this.createTask(this.task);    
+    this.createTask(this.task);
   }
 
-  verifyTaskExists(task: TaskInterface) {
-    return this.tasks.some(t => (t.taskContent == task.taskContent) && (t.done == task.done))
-  }
+  verifyTaskExists() {
+    this.task.taskContent.trim().length == 0 ? this.disabled = true : this.disabled = false;
 
+    if (this.tasks.some(task => (task.taskContent == this.task.taskContent.trim().toLowerCase()) && (task.done == this.task.done))) {
+      this.isTaskEquals = true;
+      this.disabled = true;
+      return
+    }
+    this.isTaskEquals = false;
+  }
 }
