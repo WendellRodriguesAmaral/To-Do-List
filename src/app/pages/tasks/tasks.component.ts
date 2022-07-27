@@ -10,7 +10,7 @@ import { TaskInterface } from 'src/app/shared/models/task.model';
 export class TasksComponent implements OnInit {
 
   disabled: boolean = true;
-
+  isTaskEquals: boolean = false;
   tasks: TaskInterface[] = this.tasksService.getTask();
   task: TaskInterface = {
     taskContent: '',
@@ -31,14 +31,29 @@ export class TasksComponent implements OnInit {
     this.task.taskContent.trim().length == 0 ? this.disabled = true : this.disabled = false;
   }
 
+
   createTask(task: TaskInterface) {
+
+    
+    if(this.verifyTaskExists(task)){
+      this.isTaskEquals=true;
+      this.task.taskContent='';
+      return
+    }
+
+    this.isTaskEquals=false;
     this.tasks.push(task);
     this.tasksService.setTask(this.tasks);
-    console.log(this.tasks);
+    window.location.reload();
+    
   }
 
   saveTask() {
-    this.createTask(this.task);
+    this.createTask(this.task);    
+  }
+
+  verifyTaskExists(task: TaskInterface) {
+    return this.tasks.some(t => (t.taskContent == task.taskContent) && (t.done == task.done))
   }
 
 }
