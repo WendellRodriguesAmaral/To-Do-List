@@ -5,6 +5,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import {MatIconModule} from '@angular/material/icon';
 import { PointerDirective } from '../shared/directives/pointer.directive';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,8 @@ import { PointerDirective } from '../shared/directives/pointer.directive';
     CommonModule,
     SharedModule,
     PagesRoutingModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ]
 })
 export class PagesModule { }

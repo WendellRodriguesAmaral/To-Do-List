@@ -6,21 +6,22 @@
 
     <main class="w-100 h-100 pt-5 content">
         <div class="input-group m-auto mb-5 content__input">
-            <textarea class="form-control content__input-textarea" placeholder="Digite aqui sua tarefa"
+            <textarea (keyup)="validateInput()" [(ngModel)]="task.taskContent" class="form-control content__input-textarea" placeholder="Digite aqui sua tarefa"
                 aria-label="Area para digitar a tarefa"></textarea>
-            <button disabled class="content__input-button" pointer>
+            <button [disabled]="disabled" class="content__input-button" (click)="saveTask()" pointer>
                 <mat-icon >add</mat-icon>
             </button>
         </div>
 
         <section class="content__tasks">
-            <div class="m-auto mb-4 content__task" *ngFor="let i of [1,1,1,1,1,1]">
-                <div class="content__task-text">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde magnam placeat, ratione voluptatem at beatae laboriosam rem iusto rerum eos, tempore qui iste quaerat possimus nulla suscipit molestiae sit soluta. </p>
+            <div class="m-auto mb-4 content__task" *ngFor="let task of tasks">
+                <div class="content__task-text" [ngClass]="{'done': task.done} ">
+                    <p>{{task.taskContent}}</p>
 
                 </div>
                 <div class="content__task-actions">
-                    <mat-icon class="content__task-actions__done" pointer>done_outline</mat-icon>
+                    <mat-icon class="content__task-actions__done" pointer *ngIf="!task.done" (click)="taskDone(task)">done_outline</mat-icon>
+                    <mat-icon class="content__task-actions__back" pointer *ngIf="task.done" (click)="taskDone(task)">reply_all</mat-icon>
                     <mat-icon class="content__task-actions__edit" pointer>edit</mat-icon>
                     <mat-icon class="content__task-actions__delete" pointer>delete</mat-icon>
                 </div>
