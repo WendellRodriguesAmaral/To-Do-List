@@ -20,6 +20,7 @@ export class TasksComponent implements OnInit {
   constructor(private tasksService: TasksService) { }
 
   ngOnInit(): void {
+    
   }
 
   taskDone(taskClickedDone: any) {
@@ -33,8 +34,9 @@ export class TasksComponent implements OnInit {
     this.task.taskContent = this.task.taskContent.trim();
     this.tasks.push(task);
     this.tasksService.setTask(this.tasks);
-    window.location.reload();
-
+    this.tasks = this.tasksService.getTask();
+    this.task.taskContent="";
+    this.disabled=true;
   }
 
   saveTask() {
@@ -44,11 +46,17 @@ export class TasksComponent implements OnInit {
   verifyTaskExists() {
     this.task.taskContent.trim().length == 0 ? this.disabled = true : this.disabled = false;
 
-    if (this.tasks.some(task => (task.taskContent == this.task.taskContent.trim().toLowerCase()) && (task.done == this.task.done))) {
+    if (this.tasks.some(task => task.taskContent.trim().toLowerCase() == this.task.taskContent.trim().toLowerCase() && task.done == this.task.done)) {
       this.isTaskEquals = true;
       this.disabled = true;
       return
     }
     this.isTaskEquals = false;
+  }
+
+  deleteTask(taskClicked:TaskInterface){
+    this.tasksService.setTask(this.tasks.filter(task=>task != taskClicked));
+    this.tasks = this.tasksService.getTask();
+    
   }
 }

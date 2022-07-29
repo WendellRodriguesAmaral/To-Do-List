@@ -23,7 +23,7 @@
                     <mat-icon class="content__task-actions__done" pointer *ngIf="!task.done" (click)="taskDone(task)">done_outline</mat-icon>
                     <mat-icon class="content__task-actions__back" pointer *ngIf="task.done" (click)="taskDone(task)">reply_all</mat-icon>
                     <mat-icon class="content__task-actions__edit" pointer>edit</mat-icon>
-                    <mat-icon class="content__task-actions__delete" pointer>delete</mat-icon>
+                    <mat-icon class="content__task-actions__delete" pointer (click)="deleteTask(task)">delete</mat-icon>
                 </div>
             </div>       
         </section>
