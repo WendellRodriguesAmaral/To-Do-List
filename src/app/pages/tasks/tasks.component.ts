@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from 'src/app/core/services/tasks.service';
 import { TaskInterface } from 'src/app/shared/models/task.model';
@@ -17,9 +18,9 @@ export class TasksComponent implements OnInit {
     done: false
   }
 
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService, private snackBar: MatSnackBar) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     
   }
 
@@ -28,6 +29,8 @@ export class TasksComponent implements OnInit {
     this.verifyTaskExists();
     this.tasksService.setTask(this.tasks);
     this.tasks = this.tasksService.getTask();
+    this.showMessage("Status da tarefa alterado com sucesso!", "Entendi", "blue");
+
   }
 
   createTask(task: TaskInterface) {
@@ -37,8 +40,10 @@ export class TasksComponent implements OnInit {
     this.tasks = this.tasksService.getTask();
     this.task.taskContent="";
     this.disabled=true;
-  }
+    this.showMessage(" Tarefa criada com sucesso!", "OK", "green");
 
+  }
+  
   saveTask() {
     this.createTask(this.task);
   }
@@ -57,6 +62,17 @@ export class TasksComponent implements OnInit {
   deleteTask(taskClicked:TaskInterface){
     this.tasksService.setTask(this.tasks.filter(task=>task != taskClicked));
     this.tasks = this.tasksService.getTask();
-    
+    this.showMessage(" Tarefa excluida com sucesso!", "OK", "red");
+  }
+
+
+
+  showMessage(msg:string, action:string, classUsed:string):void{
+    this.snackBar.open(msg , action, {
+      duration:2500,
+      horizontalPosition:'right', 
+      verticalPosition:'top',
+      panelClass:classUsed
+    })
   }
 }

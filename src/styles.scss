@@ -2,3 +2,33 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+//snack bar do angular material
+.green{
+    color:rgb(81, 147, 87);
+    background-color: rgb(232, 238, 235);
+   
+    .mat-simple-snackbar-action {
+        color: #248d3c !important;
+    }
+}
+
+.red{
+    color:rgb(147, 81, 81);
+    background-color: rgb(230, 224, 224);
+    
+    .mat-simple-snackbar-action {
+        color: #ba2828 !important;
+    }
+}
+
+
+.blue{
+    color:rgb(81, 116, 147);
+    background-color: rgb(217, 226, 228);
+    
+    .mat-simple-snackbar-action {
+        color: #287dba !important;
+    }
+}

@@ -8,6 +8,7 @@ import { registerLocaleData } from '@angular/common';
 
 import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(localePt, 'pt') // registra a localização que queremos trabalhar
 
@@ -21,7 +22,8 @@ registerLocaleData(localePt, 'pt') // registra a localização que queremos trab
     AppRoutingModule,
     CoreModule,
     PagesModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt' }

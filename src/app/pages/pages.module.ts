@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { TasksComponent } from './tasks/tasks.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import {MatIconModule} from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { PointerDirective } from '../shared/directives/pointer.directive';
 import { FormsModule } from '@angular/forms';
-import { ModalComponent } from '../shared/components/modal/modal.component';
 import { VmessageComponent } from '../shared/components/vmessage/vmessage.component';
 
 
@@ -15,14 +16,16 @@ import { VmessageComponent } from '../shared/components/vmessage/vmessage.compon
   declarations: [
     TasksComponent,
     PointerDirective,
-    ModalComponent,
     VmessageComponent
   ],
   imports: [
     CommonModule,    
+    
     PagesRoutingModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule,
+  
   ]
 })
 export class PagesModule { }
