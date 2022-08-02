@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class VmessageComponent implements OnInit {
 
   @Input() message: string='';
+  @Input() CssClass: string='';
 
   constructor() { }
 

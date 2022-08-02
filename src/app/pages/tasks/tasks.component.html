@@ -5,12 +5,18 @@
     </h1>
 
     <main class="w-100 h-100 pt-5 content text-center">
-        <app-vmessage *ngIf="isTaskEquals" message="Ja existe pelo menos uma task com este conteúdo."></app-vmessage>
+        <app-vmessage *ngIf="isTaskEquals" CssClass="text-danger" message="Ja existe pelo menos uma task com este conteúdo."></app-vmessage>
+        <app-vmessage *ngIf="editing" CssClass="text-muted" message="Você está editando uma tarefa."></app-vmessage>
         <div class="input-group m-auto mb-5 content__input">
-            <textarea (keyup)="verifyTaskExists()" [(ngModel)]="task.taskContent" class="form-control content__input-textarea" placeholder="Digite aqui sua tarefa..."
+            <textarea #inputTask (keyup)="verifyTaskExists()" [(ngModel)]="task.taskContent" class="form-control content__input-textarea" placeholder="Digite aqui sua tarefa..."
                 aria-label="Area para digitar a tarefa"></textarea>
-            <button [disabled]="disabled" class="content__input-button" (click)="saveTask()" pointer>
+            
+            <button [disabled]="disabled" class="content__input-button" *ngIf="!editing" (click)="saveTask()" pointer>
                 <mat-icon >add</mat-icon>
+            </button>
+
+            <button [disabled]="disabled" class="content__input-button" *ngIf="editing" (click)="confirmEditTask()" pointer>
+                <mat-icon >check</mat-icon>
             </button>
         </div>
 
@@ -19,12 +25,13 @@
                 <div class="content__task-text" [ngClass]="{'done': task.done} ">
                     <p>{{task.taskContent}}</p>
                 </div>
-                <div class="content__task-actions">
+                <div  class="content__task-actions">
                     <mat-icon class="content__task-actions__done" pointer *ngIf="!task.done" (click)="taskDone(task)">done_outline</mat-icon>
                     <mat-icon class="content__task-actions__back" pointer *ngIf="task.done" (click)="taskDone(task)">reply_all</mat-icon>
-                    <mat-icon class="content__task-actions__edit" pointer >edit</mat-icon>
+                    <mat-icon class="content__task-actions__edit" pointer (click)="editTask(task, tasks.indexOf(task))">edit</mat-icon>
                     <mat-icon class="content__task-actions__delete" pointer (click)="deleteTask(task)">delete</mat-icon> 
                 </div>
+                <small class="content__task__edited" *ngIf="task.edited">Edited</small>
             </div>       
         </section>
     </main>
