@@ -1,6 +1,7 @@
-# POC Estrutura Escalável Angular
+# Projeto To-Do List
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.13.
+Projeto desenvolvido em [Angular CLI](https://github.com/angular/angular-cli) versão 12.2.13.
+
 
 ## Development server
 
