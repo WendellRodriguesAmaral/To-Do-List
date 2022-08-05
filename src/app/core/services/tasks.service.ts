@@ -10,17 +10,11 @@ const TASKS = 'tasks'
 export class TasksService {
   constructor(){}
 
-  
-
-
-
-  setTask(value:TaskInterface[]) {
+  setTask(value:TaskInterface[]):void {
     window.localStorage.setItem(TASKS, JSON.stringify(value))
   }
 
-  getTask() {
+  getTask():Array<TaskInterface> {
     return JSON.parse(window.localStorage.getItem(TASKS) || '[]');
   }
-
-
 }

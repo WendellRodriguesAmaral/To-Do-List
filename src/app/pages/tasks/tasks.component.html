@@ -5,8 +5,9 @@
     </h1>
 
     <main class="w-100 h-100 pt-5 content text-center">
+        <app-vmessage *ngIf="editing" CssClass="text-muted" message="Você está editando uma tarefa."></app-vmessage><br>
         <app-vmessage *ngIf="isTaskEquals" CssClass="text-danger" message="Ja existe pelo menos uma task com este conteúdo."></app-vmessage>
-        <app-vmessage *ngIf="editing" CssClass="text-muted" message="Você está editando uma tarefa."></app-vmessage>
+        
         <div class="input-group m-auto mb-5 content__input">
             <textarea #inputTask (keyup)="verifyTaskExists()" [(ngModel)]="task.taskContent" class="form-control content__input-textarea" placeholder="Digite aqui sua tarefa..."
                 aria-label="Area para digitar a tarefa"></textarea>
