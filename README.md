@@ -2,27 +2,49 @@
 
 Projeto desenvolvido em [Angular CLI](https://github.com/angular/angular-cli) versão 12.2.13.
 
+<img src='./src/assets/GIT to-do list.gif' height=500>
 
-## Development server
+## Para começar
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### 1- Clone o repositório
 
-## Code scaffolding
+#### 2- Instale as dependencias
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+npm install
+```
 
-## Build
+#### 1- Inicie o servidor de desenvolvimento
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm start ou ng serve
+```
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Tecnologias e ferramentas 📚
 
-## Running end-to-end tests
+- [x] VS Code
+- [x] GIT
+- [x] Local Storage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- [x] Angular 12
+- [x] Bootstrap
+- [x] SASS
 
-## Further help
+#### Conceitos aplicados 📚
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [x] Loops
+- [x] Binds
+- [x] Padrão BEM
+- [x] Condicionais
+- [x] Diretivas
+- [x] Flex box
+- [x] Resposividade
+- [x] Interação com local storage
+
+---
+
+ <small>Me chame no meu  [Linkedin](https://www.linkedin.com/in/wendell-rodrigues-30011997/) Vamos conversar!  👋🏻</small>
+
+<small>Desenvolvido com ❤️ por Wendell Rodrigues</small>
