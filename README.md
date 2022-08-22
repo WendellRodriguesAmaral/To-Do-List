@@ -2,7 +2,7 @@
 
 Projeto desenvolvido em [Angular CLI](https://github.com/angular/angular-cli) versão 12.2.13.
 
-<img src='./src/assets/GIT to-do list.gif' height=400>
+<img src='./src/assets/GIT to-do list.gif' height=450>
 
 ## Para começar
 
